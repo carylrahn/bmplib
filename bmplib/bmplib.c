@@ -124,7 +124,6 @@ size_t __stdcall blWriteBits(__in_bcount(cbBufsize) uint8_t* pDest, __in const u
             row,
             i,
             cur = 0;
-    char    bIsBroken = 0;
     
     pad = ((uint32_t)(abs(pInfoHdr->biWidth) * (pInfoHdr->biBitCount / CHAR_BIT)) % 4);
     if (pad)
@@ -133,20 +132,16 @@ size_t __stdcall blWriteBits(__in_bcount(cbBufsize) uint8_t* pDest, __in const u
         for (row = 0; row < (uint32_t)abs(pInfoHdr->biWidth); ++row) {
             for (i = 0; i < pInfoHdr->biBitCount / CHAR_BIT; ++i) {
                 if (++cur > cbBufsize) {
-                    bIsBroken = 1;
-                    break;
-                }
+                    goto bufoversize; // better than break (if xxx) break (if xxx) break
+                }                     //    acceptable use(?), better solution is reduce for() loops to one
                 *pDest++ = *pSrc++;
             }
-            if (bIsBroken)
-                break;
         }
-        if (bIsBroken)
-            break;
         if (iDirection)
             pSrc += pad;
         else
             pDest += pad;
     }
+  bufoversize:
     return cur;
 }
