@@ -40,6 +40,8 @@
 
 #pragma region Prototypes
     int __stdcall blIsValidBitmap(__in void* pBitmap);
+    size_t __stdcall blGetPixelArraySize(__in void* pBitmap);
+    void __stdcall blGetBitmapInfo(__in void* pBitmap, __out LPBITMAPFILEHEADER* pFileHdr, __out LPBITMAPINFOHEADER* pInfoHdr);
 
     size_t __stdcall blRipBits(__in void* pBitmap, __deref_out_bcount(cbBufsize) void* pBits, __in size_t cbBufsize);
     size_t __stdcall blSetBits(__in void* pBitmap, __in_bcount(cbBufsize) const void* pBits, __in size_t cbBufsize);

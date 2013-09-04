@@ -38,6 +38,21 @@ int __stdcall blIsValidBitmap(__in void* pBitmap) {
     return 1;
 }
 
+size_t __stdcall blGetPixelArraySize(__in void* pBitmap) {
+    BITMAPFILEHEADER *pFileHdr = NULL;
+    BITMAPINFOHEADER *pInfoHdr = NULL;
+
+    pFileHdr = (BITMAPFILEHEADER*)pBitmap;
+    pInfoHdr = (BITMAPINFOHEADER*)((uint8_t*)pBitmap + sizeof(BITMAPFILEHEADER));
+
+    return (pInfoHdr->biWidth * (pInfoHdr->biBitCount / CHAR_BIT)) * (pInfoHdr->biHeight * (pInfoHdr->biBitCount / CHAR_BIT));
+}
+
+void __stdcall blGetBitmapInfo(__in void* pBitmap, __out LPBITMAPFILEHEADER* pFileHdr, __out LPBITMAPINFOHEADER* pInfoHdr) {
+    *pFileHdr = (BITMAPFILEHEADER*)pBitmap;
+    *pInfoHdr = (BITMAPINFOHEADER*)((uint8_t*)pBitmap + sizeof(BITMAPFILEHEADER));
+}
+
 /// <summary>
 ///	Rips the raw pixel array from a bitmap </summary>
 ///

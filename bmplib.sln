@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bmplib", "bmplib\bmplib.vcxproj", "{BA5E5736-A3E0-40BB-A601-406FAC15B8ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bmp2nmap", "bmp2nmap\bmp2nmap.vcxproj", "{C1AA4E51-8BB7-4572-BE37-528AF0EE0BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{BA5E5736-A3E0-40BB-A601-406FAC15B8ED}.Debug|Win32.Build.0 = Debug|Win32
 		{BA5E5736-A3E0-40BB-A601-406FAC15B8ED}.Release|Win32.ActiveCfg = Release|Win32
 		{BA5E5736-A3E0-40BB-A601-406FAC15B8ED}.Release|Win32.Build.0 = Release|Win32
+		{C1AA4E51-8BB7-4572-BE37-528AF0EE0BBE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C1AA4E51-8BB7-4572-BE37-528AF0EE0BBE}.Debug|Win32.Build.0 = Debug|Win32
+		{C1AA4E51-8BB7-4572-BE37-528AF0EE0BBE}.Release|Win32.ActiveCfg = Release|Win32
+		{C1AA4E51-8BB7-4572-BE37-528AF0EE0BBE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
